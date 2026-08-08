@@ -183,7 +183,8 @@ export IMG_NAME="${IMG_NAME:-raspios-$RELEASE-$ARCH}"
 
 export USE_QEMU="${USE_QEMU:-0}"
 export IMG_DATE="${IMG_DATE:-"$(date +%Y-%m-%d)"}"
-export IMG_FILENAME="${IMG_FILENAME:-"${IMG_DATE}-${IMG_NAME}"}"
+export PWNAGOTCHI_VERSION="$(sed -n "s/__version__ = '\(.*\)'/\1/p" "${BASE_DIR}/../pwnagotchi/_version.py")"
+export IMG_FILENAME="${IMG_NAME}-${PWNAGOTCHI_VERSION}"
 export ARCHIVE_FILENAME="${ARCHIVE_FILENAME:-"image_${IMG_DATE}-${IMG_NAME}"}"
 
 export SCRIPT_DIR="${BASE_DIR}/scripts"
